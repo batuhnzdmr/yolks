@@ -1,8 +1,8 @@
 ## Docker Hub
 FROM --platform=$TARGETOS/$TARGETARCH ubuntu:22.04
 
+## Configure
 LABEL author="androcyber" maintainer="destek@hostibu.com"
-
 ENV DEBIAN_FRONTEND noninteractive
 
 ## User
@@ -14,9 +14,6 @@ RUN apt upgrade -y
 
 ## Install packages
 RUN apt install -y wget tar zip unzip
-
-## configure locale
-RUN update-locale lang=en_US.UTF-8 dpkg-reconfigure --frontend noninteractive locales
 
 ## Workdir
 WORKDIR /home/container
