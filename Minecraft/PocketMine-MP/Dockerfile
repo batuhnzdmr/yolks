@@ -20,4 +20,4 @@ WORKDIR /home/container
 
 ## Run commands
 COPY  ./run.sh /run.sh
-CMD   [ "/bin/bash", "/entrypoint.sh" ]
+CMD   [ "/bin/bash", "/run.sh" ]
