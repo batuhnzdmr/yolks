@@ -31,8 +31,8 @@ else
         
         # Check server version
         server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
-        mkdir -p /home/container/yedek
-        mv /home/container/* /home/container/yedek
+        #mkdir -p /home/container/yedek
+        #mv /home/container/* /home/container/yedek
 
         download_bedrockserver()
         {
