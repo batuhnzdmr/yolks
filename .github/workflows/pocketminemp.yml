@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.GHCR_PASSWD }}
       - uses: docker/build-push-action@v4
         with:
-          context: ./Minecraft/PocketMine-MP
+          context: ./Minecraft/PocketMine-MP/
           file: ./Minecraft/PocketMine-MP/Dockerfile
           push: true
           tags: |
