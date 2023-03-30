@@ -38,7 +38,6 @@ else
         
         mkdir /home/container/yedek
         mv /home/container/* /home/container/yedek
-        tar -cf yedek.tar /home/container/yedek
 
         download_bedrockserver()
         {
