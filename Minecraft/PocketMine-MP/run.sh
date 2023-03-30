@@ -53,7 +53,7 @@ else
     }
 
     echo "-------------------------------------------------------------------------------------------------------------"
-    echo "Hostibu - Sunucunuz güncel değil! Sunucu güncellemeleri kuruluyor..."
+    echo "Hostibu - Sunucu güncel değil! Sunucu güncellemeleri kuruluyor..."
     echo "-------------------------------------------------------------------------------------------------------------"
     update_server
 
