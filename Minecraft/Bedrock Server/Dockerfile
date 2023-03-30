@@ -20,5 +20,4 @@ WORKDIR /home/container
 
 ## Run commands
 COPY ./run.sh /run.sh
-COPY ./update.sh /update.sh
 CMD [ "/bin/bash", "/run.sh" ]
