@@ -26,14 +26,16 @@ else
 
     update_server()
     {
+        # Workdir
         cd /home/container
         
-        #mkdir /home/container/yedek
-        #mv /home/container/* /home/container/yedek
+        # Check server version
+        server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
+        mkdir -p /home/container/yedek
+        mv /home/container/* /home/container/yedek
 
         download_bedrockserver()
         {
-            server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
             # Check version
             if [[ "$server_version" == "latest" ]]; then
                 link="https://www.googleapis.com/drive/v3/files/1gShqlrI8jSg9qLcTkbA4k-FtVNYIU5pE?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
