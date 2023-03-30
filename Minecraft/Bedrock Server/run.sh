@@ -10,41 +10,30 @@
 #
 cd /home/container
 
-# Check for updates
+    # Check for updates
     echo "-------------------------------------------------------------------------------------------------------------"
     echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
     echo "-------------------------------------------------------------------------------------------------------------"
 
-# Variables
+    # Variables
     current_version="$(grep -i 'current_version' hostibu | cut -d '"' -f 4)"
     server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
 
-    if [[ "$current_version" == "$server_version" ]]; then
-        echo "-------------------------------------------------------------------------------------------------------------"
-        echo "Hostibu | Sunucunuz güncel!"
-        echo "-------------------------------------------------------------------------------------------------------------"
-    else
-        echo "-------------------------------------------------------------------------------------------------------------"
-        echo "Hostibu | Sunucunuz güncel değil! Sunucunuz güncelleniyor..."
-        echo "-------------------------------------------------------------------------------------------------------------"
+if [[ "$current_version" == "$server_version" ]]; then
+    echo "-------------------------------------------------------------------------------------------------------------"
+    echo "Hostibu | Sunucunuz güncel!"
+    echo "-------------------------------------------------------------------------------------------------------------"
+else
+    echo "-------------------------------------------------------------------------------------------------------------"
+    echo "Hostibu | Sunucunuz güncel değil! Sunucunuz güncelleniyor..."
+    echo "-------------------------------------------------------------------------------------------------------------"
 
     update_server()
     {
         # Get hostibu server api
         wget -q "https://hostibu.com/panel/bedrockserver/api"
-        
-        # Check version
-        if [[ "${SERVER_VERSION}" == "latest" ]]; then
-            link=$(grep -i 'latest' bedrockserver | cut -d '"' -f 4)
-            #link="https://www.googleapis.com/drive/v3/files/1QY_hb71M7Kude5ao_Hx4CA3rKS04JYT8?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
-        elif [[ "${SERVER_VERSION}" == "1.19.63" ]]; then
-            link=$(grep -i '1.19.63' bedrockserver | cut -d '"' -f 4)
-            #link="https://www.googleapis.com/drive/v3/files/1kTs-Gkbd5zkUX3co2q0sV8HWEEqu5CSR?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
-        elif [[ "${SERVER_VERSION}" == "1.19.70" ]]; then
-            link=$(grep -i '1.19.70' bedrockserver | cut -d '"' -f 4)
-            #link="https://www.googleapis.com/drive/v3/files/1QY_hb71M7Kude5ao_Hx4CA3rKS04JYT8?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
-        fi
-        
+        link=$(grep -i '${SERVER_VERSION}' bedrockserver | cut -d '"' -f 4)
+
         # Download server files
         wget -q "$link" -O "server.zip"
         unzip -q server.zip
