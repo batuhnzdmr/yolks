@@ -13,7 +13,7 @@ RUN apt update
 RUN apt upgrade -y
 
 ## Install packages
-RUN apt install -y wget libcurl4
+RUN apt install -y wget libcurl4 unzip
 
 ## Workdir
 WORKDIR /home/container
