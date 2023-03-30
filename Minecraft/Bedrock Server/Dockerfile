@@ -13,11 +13,12 @@ RUN apt update
 RUN apt upgrade -y
 
 ## Install packages
-RUN apt install -y wget tar zip unzip libcurl4
+RUN apt install -y wget libcurl4
 
 ## Workdir
 WORKDIR /home/container
 
 ## Run commands
-COPY  ./run.sh /run.sh
-CMD   [ "/bin/bash", "/run.sh" ]
+COPY ./run.sh /run.sh
+COPY ./update.sh /update.sh
+CMD [ "/bin/bash", "/run.sh" ]
