@@ -29,7 +29,6 @@ else
         apt update
         apt ugprade -y
         apt install -y wget unzip
-        clear
     }
 
     update_server()
@@ -41,12 +40,13 @@ else
 
         download_bedrockserver()
         {
+            server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
             # Check version
-            if [[ "${SERVER_VERSION}" == "latest" ]]; then
+            if [[ "$server_version" == "latest" ]]; then
                 link="https://www.googleapis.com/drive/v3/files/1gShqlrI8jSg9qLcTkbA4k-FtVNYIU5pE?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
-            elif [[ "${SERVER_VERSION}" == "1.19.63" ]]; then
+            elif [[ "$server_version" == "1.19.63" ]]; then
                 link="https://www.googleapis.com/drive/v3/files/1Fyei7iDnU20q9wUELoQ-pDVFP-MQgC4m?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
-            elif [[ "${SERVER_VERSION}" == "1.19.70" ]]; then
+            elif [[ "$server_version" == "1.19.70" ]]; then
                 link="https://www.googleapis.com/drive/v3/files/1gShqlrI8jSg9qLcTkbA4k-FtVNYIU5pE?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
             fi
         
