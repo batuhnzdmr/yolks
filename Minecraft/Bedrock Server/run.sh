@@ -11,47 +11,45 @@
 cd /home/container
 
 # Check for updates
-echo "-------------------------------------------------------------------------------------------------------------"
-echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
-echo "-------------------------------------------------------------------------------------------------------------"
-current_version="$(grep -i 'current_version' hostibu | cut -d '"' -f 4)"
-if [[ "$current_version" == "${SERVER_VERSION}" ]]; then
     echo "-------------------------------------------------------------------------------------------------------------"
-    echo "Hostibu | Sunucunuz güncel!"
+    echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
     echo "-------------------------------------------------------------------------------------------------------------"
-else
-    echo "-------------------------------------------------------------------------------------------------------------"
-    echo "Hostibu | Sunucunuz güncel değil! Sunucunuz güncelleniyor..."
-    echo "-------------------------------------------------------------------------------------------------------------"
+
+# Variables
+    current_version="$(grep -i 'current_version' hostibu | cut -d '"' -f 4)"
+    server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
+
+    if [[ "$current_version" == "$server_version" ]]; then
+        echo "-------------------------------------------------------------------------------------------------------------"
+        echo "Hostibu | Sunucunuz güncel!"
+        echo "-------------------------------------------------------------------------------------------------------------"
+    else
+        echo "-------------------------------------------------------------------------------------------------------------"
+        echo "Hostibu | Sunucunuz güncel değil! Sunucunuz güncelleniyor..."
+        echo "-------------------------------------------------------------------------------------------------------------"
 
     update_server()
     {
-        # Workdir
-        cd /home/container
+        # Get hostibu server api
+        wget -q "https://hostibu.com/panel/bedrockserver/api"
         
-        # Check server version
-        server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
-        #mkdir -p /home/container/yedek
-        #mv /home/container/* /home/container/yedek
-
-        download_bedrockserver()
-        {
-            # Check version
-            if [[ "$server_version" == "latest" ]]; then
-                link="https://www.googleapis.com/drive/v3/files/1gShqlrI8jSg9qLcTkbA4k-FtVNYIU5pE?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
-            elif [[ "$server_version" == "1.19.63" ]]; then
-                link="https://www.googleapis.com/drive/v3/files/1Fyei7iDnU20q9wUELoQ-pDVFP-MQgC4m?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
-            elif [[ "$server_version" == "1.19.70" ]]; then
-                link="https://www.googleapis.com/drive/v3/files/1gShqlrI8jSg9qLcTkbA4k-FtVNYIU5pE?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
-            fi
+        # Check version
+        if [[ "${SERVER_VERSION}" == "latest" ]]; then
+            link=$(grep -i 'latest' bedrockserver | cut -d '"' -f 4)
+            #link="https://www.googleapis.com/drive/v3/files/1QY_hb71M7Kude5ao_Hx4CA3rKS04JYT8?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
+        elif [[ "${SERVER_VERSION}" == "1.19.63" ]]; then
+            link=$(grep -i '1.19.63' bedrockserver | cut -d '"' -f 4)
+            #link="https://www.googleapis.com/drive/v3/files/1kTs-Gkbd5zkUX3co2q0sV8HWEEqu5CSR?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
+        elif [[ "${SERVER_VERSION}" == "1.19.70" ]]; then
+            link=$(grep -i '1.19.70' bedrockserver | cut -d '"' -f 4)
+            #link="https://www.googleapis.com/drive/v3/files/1QY_hb71M7Kude5ao_Hx4CA3rKS04JYT8?alt=media&key=AIzaSyCjmiOfzK-fZha_OLYta0KRqq7w4M-Yu90"
+        fi
         
-            # Download server files
-            wget -q "$link" -O "server.zip"
-            unzip -q server.zip
-            rm server.zip
-        }
-
-        download_bedrockserver
+        # Download server files
+        wget -q "$link" -O "server.zip"
+        unzip -q server.zip
+        rm server.zip
+        rm api
     }
 
     file_permission()
