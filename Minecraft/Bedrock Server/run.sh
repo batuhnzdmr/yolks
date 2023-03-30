@@ -10,14 +10,14 @@
 #
 cd /home/container
 
-# Check for updates
-echo "-------------------------------------------------------------------------------------------------------------"
-echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
-echo "-------------------------------------------------------------------------------------------------------------"
+    # Check for updates
+    echo "-------------------------------------------------------------------------------------------------------------"
+    echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
+    echo "-------------------------------------------------------------------------------------------------------------"
 
-# Variables
-current_version="$(grep -i 'current_version' hostibu | cut -d '"' -f 4)"
-server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
+    # Variables
+    current_version="$(grep -i 'current_version' hostibu | cut -d '"' -f 4)"
+    server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
 
 if [[ "$current_version" == "$server_version" ]]; then
     echo "-------------------------------------------------------------------------------------------------------------"
@@ -32,8 +32,7 @@ else
     {
         # Get hostibu server api
         wget -q "https://hostibu.com/panel/bedrockserver/api"
-        link=$(grep -i '${SERVER_VERSION}' api | cut -d '"' -f 4)
-        echo "indirme bağlantısı : $link"
+        link=$(grep -i "${SERVER_VERSION}" api | cut -d '"' -f 4)
 
         # Download server files
         wget -q "$link" -O "server.zip"
