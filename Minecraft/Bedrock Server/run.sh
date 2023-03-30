@@ -32,11 +32,11 @@ else
     {
         # Get hostibu server api
         wget -q "https://hostibu.com/panel/bedrockserver/api"
-        link="$(grep -i "${SERVER_VERSION}" api | cut -d '"' -f 4)"
+        link=$(grep -i "${SERVER_VERSION}" api | cut -d '"' -f 4)
 
         # Download server files
         wget -q "$link" -O "server.zip"
-        unzip -q server.zip
+        unzip -q server.zip -o
         rm server.zip
         rm api
     }
