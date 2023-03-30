@@ -20,6 +20,7 @@ jobs:
           password: ${{ secrets.GHCR_PASSWD }}
       - uses: docker/build-push-action@v4
         with:
+          context: ./Minecraft/Bedrock Server/
           file: ./Minecraft/Bedrock Server/Dockerfile
           push: true
           tags: |
