@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 #       Social Media
 #   youtube.com/androcyber
@@ -8,6 +9,15 @@
 #   Made by androcyber
 #
 cd /home/container
+
+# Check for updates
+echo "-------------------------------------------------------------------------------------------------------------"
+echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
+echo "-------------------------------------------------------------------------------------------------------------"
+current_version="$(grep -i 'current_version' hostibu | cut -d '"' -f 4)"
+if [[ "$current_version" !== "${SERVER_VERSION}" ]]; then
+    sh ./update.sh
+fi
 
 # Startup message
 echo "-------------------------------------------------------------------------------------------------------------"
