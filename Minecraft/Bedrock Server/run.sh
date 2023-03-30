@@ -35,8 +35,8 @@ else
     {
         cd /home/container
         
-        mkdir /home/container/yedek
-        mv /home/container/* /home/container/yedek
+        #mkdir /home/container/yedek
+        #mv /home/container/* /home/container/yedek
 
         download_bedrockserver()
         {
