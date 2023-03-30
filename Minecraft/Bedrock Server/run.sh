@@ -36,7 +36,7 @@ else
 
         # Download server files
         wget -q "$link" -O "server.zip"
-        unzip -q server.zip -o
+        unzip -qo server.zip
         rm server.zip
         rm api
     }
