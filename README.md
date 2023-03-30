@@ -5,8 +5,13 @@
   <ul>
     <li>PocketMine-MP</li>
     <ul>
-      <li><b>Description:</b> A server software based on PocketMine-MP for Minecraft.</li>
+      <li><b>Description:</b> A Minecraft server software based on PocketMine-MP.</li>
       <li><b>Download:</b> <code>ghcr.io/androcyber/yolks:pocketmine-mp</code></li>
+    </ul>
+    <li>Bedrock Server</li>
+    <ul>
+      <li><b>Description:</b> A Minecraft server software based on Bedrock Server.</li>
+      <li><b>Download:</b> <code>ghcr.io/androcyber/yolks:bedrockserver</code></li>
     </ul>
   </ul>
 </p>
