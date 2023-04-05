@@ -15,7 +15,7 @@ echo "--------------------------------------------------------------------------
 echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
 echo "-------------------------------------------------------------------------------------------------------------"
 
-rm Pocketmine-MP.phar
+rm PocketMine-MP.phar
 rm pocketmine.yml
 
 # Check version
