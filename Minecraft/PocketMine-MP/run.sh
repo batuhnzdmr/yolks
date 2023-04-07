@@ -16,7 +16,6 @@ echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
 echo "-------------------------------------------------------------------------------------------------------------"
 
 rm PocketMine-MP.phar
-rm pocketmine.yml
 
 # Check version
 if [[ "${SERVER_VERSION}" == "latest" ]]; then
