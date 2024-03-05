@@ -2,7 +2,7 @@
 FROM --platform=$TARGETOS/$TARGETARCH ubuntu:22.04
 
 ## Configure
-LABEL author="androcyber" maintainer="destek@hostibu.com"
+LABEL author="Hostibu" maintainer="destek@hostibu.com"
 ENV DEBIAN_FRONTEND noninteractive
 
 ## User
