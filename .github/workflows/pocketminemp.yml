@@ -1,9 +1,7 @@
 name: Minecraft | PocketMine-MP
-
 on:
   push:
     branches: [ "main" ]
-
 jobs:
   push:
     runs-on: ubuntu-latest
