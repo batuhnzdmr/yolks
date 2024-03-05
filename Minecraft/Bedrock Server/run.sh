@@ -1,13 +1,4 @@
 #!/bin/bash
-#
-#       Social Media
-#   youtube.com/androcyber
-#   twitch.com/androcyber
-#   twitter.com/androcyber0
-#   instagram.com/androcyber0
-#
-#   Made by androcyber
-#
 cd /home/container
 
 # Check for updates
