@@ -21,5 +21,4 @@ jobs:
           context: ./Minecraft/Bedrock Server/
           file: ./Minecraft/Bedrock Server/Dockerfile
           push: true
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/yolks:bedrockserver
+          tags: ghcr.io/${{ github.repository_owner }}/yolks:bedrockserver
