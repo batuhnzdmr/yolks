@@ -16,13 +16,4 @@
   </ul>
 </p>
 <br>
-<h2 align="center">Social Media</h3>
-<p align="center">
-<a href="https://www.youtube.com/androcyber" target="_blank"><img alt="androcyber" src="https://i.hizliresim.com/ibuzuks.png" width="44" height="44"></img></a>
-<a href="https://www.twitter.com/androcyber0" target="_blank"><img alt="androcyber0" src="https://i.hizliresim.com/r98d0rb.png" width="44" height="44"></img></a>
-<a href="https://www.github.com/androcyber" target="_blank"><img alt="androcyber" src="https://i.hizliresim.com/jxp3m16.png" width="44" height="44"></img></a>
-<a href="https://www.instagram.com/androcyber0" target="_blank"><img alt="androcyber0" src="https://i.hizliresim.com/8yiox4f.png" width="44" height="44"></img></a>
-<a href="https://www.discord.com/invite/EBUS4TYSY2" target="_blank"><img alt="discord.gg/EBUS4TYSY2" src="https://i.hizliresim.com/rcgesvp.png" width="44" height="44"></img></a>
-</p>
-<br>
-<p>Last update: <small>18.08.2024</small></p>
+<p>Last update: <small>18.08.2024 19:49</small></p>
