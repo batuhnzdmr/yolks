@@ -1,5 +1,4 @@
 #!/bin/bash
-#
 cd /home/container
 
 # Check for updates
@@ -7,9 +6,10 @@ echo "--------------------------------------------------------------------------
 echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
 echo "-------------------------------------------------------------------------------------------------------------"
 
-rm PocketMine-MP.phar
+rm Pocketmine-MP.phar
+rm pocketmine.yml
 
-# Check version
+# Check server version
 if [[ "${SERVER_VERSION}" == "latest" ]]; then
     wget -q "https://update.pmmp.io/api"
     link=$(grep -i 'download_url' api | cut -d '"' -f 4)
@@ -18,9 +18,10 @@ else
     link="https://github.com/pmmp/PocketMine-MP/releases/download/${SERVER_VERSION}/PocketMine-MP.phar"
 fi
 
-# Download server files
+# Download server file
 wget -q "$link" -O "PocketMine-MP.phar"
-chmod +x bin/php7/bin/php
+
+# File permissions
 chmod +x PocketMine-MP.phar
 
 # Startup message
