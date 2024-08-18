@@ -24,3 +24,5 @@
 <a href="https://www.instagram.com/androcyber0" target="_blank"><img alt="androcyber0" src="https://i.hizliresim.com/8yiox4f.png" width="44" height="44"></img></a>
 <a href="https://www.discord.com/invite/EBUS4TYSY2" target="_blank"><img alt="discord.gg/EBUS4TYSY2" src="https://i.hizliresim.com/rcgesvp.png" width="44" height="44"></img></a>
 </p>
+<br>
+<p>Last update: <small>18.08.2024</small></p>
