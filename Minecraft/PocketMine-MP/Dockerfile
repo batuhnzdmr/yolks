@@ -6,7 +6,7 @@ LABEL author="Hostibu" maintainer="destek@hostibu.com"
 ENV DEBIAN_FRONTEND noninteractive
 
 ## User
-RUN useradd -m -d /home/hostibu -s /bin/bash hostibu
+RUN useradd -m -d /home/container -s /bin/bash container
 
 ## Update and upgrade packages
 RUN apt update
@@ -16,7 +16,7 @@ RUN apt upgrade -y
 RUN apt install -y wget tar zip unzip
 
 ## Workdir
-WORKDIR /home/hostibu
+WORKDIR /home/container
 
 ## Run commands
 COPY  ./run.sh /run.sh
