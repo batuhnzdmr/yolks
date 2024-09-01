@@ -13,7 +13,7 @@ RUN apt update
 RUN apt upgrade -y
 
 ## Install packages
-RUN apt install -y wget tar zip unzip
+RUN apt install -y wget tar zip unzip jq
 
 ## Workdir
 WORKDIR /home/container
