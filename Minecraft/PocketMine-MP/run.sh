@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/hostibu
+cd /home/container
 
 # Check for updates
 echo "-------------------------------------------------------------------------------------------------------------"
@@ -22,6 +22,7 @@ echo "--------------------------------------------------------------------------
 #wget -q $link -O "PocketMine-MP.phar"
 
 # File permissions
+chmod +x bin/php7/bin/php
 chmod +x PocketMine-MP.phar
 
 # Startup message
