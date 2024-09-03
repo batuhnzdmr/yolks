@@ -1,5 +1,5 @@
 ## Docker Hub
-FROM --platform=$TARGETOS/$TARGETARCH ubuntu:18.04
+FROM --platform=$TARGETOS/$TARGETARCH ubuntu:22.04
 
 ## Configure
 LABEL author="Hostibu" maintainer="destek@hostibu.com"
