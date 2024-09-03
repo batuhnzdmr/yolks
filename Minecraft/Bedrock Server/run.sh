@@ -20,14 +20,14 @@ else
     update_server()
     {
         # Get hostibu server api
-        wget -q "https://hostibu.com/panel/bedrockserver/api"
-        link=$(grep -i "${SERVER_VERSION}" api | cut -d '"' -f 4)
+        wget -q "https://files.hostibu.com/pterodactyl/nests/minecraft-bedrock-edition/bedrock-server/api.json" -O api.json
+        link=$(grep -i "${SERVER_VERSION}" api.json | cut -d '"' -f 4)
 
         # Download server files
         wget -q "$link" -O "server.zip"
         unzip -qo server.zip
         rm server.zip
-        rm api
+        rm api.json
     }
 
     file_permission()
