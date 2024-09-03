@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /home/container
 
-# Check for updates
+# Check updates
 echo "-------------------------------------------------------------------------------------------------------------"
 echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
 echo "-------------------------------------------------------------------------------------------------------------"
@@ -10,10 +10,12 @@ echo "--------------------------------------------------------------------------
 current_version="$(grep -i 'current_version' hostibu | cut -d '"' -f 4)"
 server_version="$(grep -i 'server_version' hostibu | cut -d '"' -f 4)"
 
+# Up to date
 if [[ "$current_version" == "$server_version" ]]; then
     echo "-------------------------------------------------------------------------------------------------------------"
     echo "Hostibu | Sunucunuz güncel!"
     echo "-------------------------------------------------------------------------------------------------------------"
+# Updates available
 else
     update_server()
     {
