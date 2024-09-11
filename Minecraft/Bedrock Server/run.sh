@@ -10,8 +10,8 @@ echo "--------------------------------------------------------------------------
 wget -q "https://files.hostibu.com/pterodactyl/nests/minecraft-bedrock-edition/bedrock-server/api.json" -O api.json
 
 # Variables
-current_version=$(jq -r '.current_version' api.json)
-server_version=$(jq -r '.server_version' api.json)
+current_version=$(jq -r ".current_version" api.json)
+server_version=$(jq -r ".server_version" api.json)
 
 # Up to date
 if [[ "$current_version" == "$server_version" ]]; then
@@ -22,12 +22,19 @@ if [[ "$current_version" == "$server_version" ]]; then
 else
     update_server()
     {
+        # Update server version in hostibu server version api
+        jq ".current_version" = ".${SERVER_VERSION}" hostibu.json
+
         # Get server files from hostibu server version api
         link=$(jq -r ".${SERVER_VERSION}" api.json)
 
         # Download server files
         wget -q $link -O "server.zip"
+
+        # Extract server files
         unzip -qo server.zip
+
+        # Remove old files
         rm server.zip
         rm api.json
     }
