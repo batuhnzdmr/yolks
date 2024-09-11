@@ -23,7 +23,7 @@ if [[ "$current_version" == "$server_version" ]]; then
 else
     update_server()
     {
-        # Get server version from hostibu server version api
+        # Get server files from hostibu server version api
         link=$(jq -r ".${SERVER_VERSION}" hostibu.json)
 
         # Download server files
