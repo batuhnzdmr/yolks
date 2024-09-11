@@ -6,15 +6,15 @@ echo "--------------------------------------------------------------------------
 echo "Hostibu | Sunucu güncellemeleri denetleniyor..."
 echo "-------------------------------------------------------------------------------------------------------------"
 
-# Hostibu server version api
-wget -q "https://files.hostibu.com/pterodactyl/nests/minecraft-bedrock-edition/bedrock-server/api.json" -O api.json
-
 # Variables
-current_version=$(jq -r ".current_version" api.json)
-server_version=$(jq -r ".server_version" api.json)
+current_version=$(jq -r ".current_version" hostibu.json)
+server_version=$(jq -r ".server_version" hostibu.json)
+
+echo "current : $current_version"
+echo "server : $server_version"
 
 # Up to date
-if [[ "$current_version" == "$server_version" ]]; then
+if [[ $current_version === $server_version ]]; then
     echo "-------------------------------------------------------------------------------------------------------------"
     echo "Hostibu | Sunucunuz güncel!"
     echo "-------------------------------------------------------------------------------------------------------------"
@@ -24,6 +24,9 @@ else
     {
         # Update server version in hostibu server version api
         jq ".current_version" = ".${SERVER_VERSION}" hostibu.json
+
+        # Hostibu server version api
+        wget -q "https://files.hostibu.com/pterodactyl/nests/minecraft-bedrock-edition/bedrock-server/api.json" -O api.json
 
         # Get server files from hostibu server version api
         link=$(jq -r ".${SERVER_VERSION}" api.json)
