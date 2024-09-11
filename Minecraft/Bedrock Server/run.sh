@@ -23,7 +23,7 @@ else
     update_server()
     {
         # Update server version in hostibu server version api
-        jq ".current_version" = ".${SERVER_VERSION}" hostibu.json
+        jq ".current_version = '.${SERVER_VERSION}'" hostibu.json
 
         # Hostibu server version api
         wget -q "https://files.hostibu.com/pterodactyl/nests/minecraft-bedrock-edition/bedrock-server/api.json" -O api.json
