@@ -10,6 +10,9 @@ echo "--------------------------------------------------------------------------
 current_version=$(jq -r ".current_version" hostibu.json)
 server_version=$(jq -r ".server_version" hostibu.json)
 
+echo "current : $current_version"
+echo "server : $server_version"
+
 # Up to date
 if [[ $current_version == $server_version ]]; then
     echo "-------------------------------------------------------------------------------------------------------------"
